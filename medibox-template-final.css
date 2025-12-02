@@ -1,0 +1,1690 @@
+/* =====================================================================
+   MEDIBOX - FICHE DE COURS - CSS TEMPLATE FINAL
+   Version 5.0 - Palette 10 couleurs + Lightbox
+   ===================================================================== */
+
+/* ========================================
+   1. VARIABLES CSS
+   ======================================== */
+:root {
+    /* ----- Couleurs principales Medibox ----- */
+    --bleu-medibox: #004a89;
+    --corail-medibox: #ff6b7a;
+    
+    /* ----- PALETTE 10 COULEURS ACCORDÉONS ----- */
+    --accord-1: #004a89;   /* Bleu Medibox */
+    --accord-2: #0891b2;   /* Cyan */
+    --accord-3: #059669;   /* Vert émeraude */
+    --accord-4: #65a30d;   /* Vert lime */
+    --accord-5: #ea580c;   /* Orange vif */
+    --accord-6: #d97706;   /* Ambre */
+    --accord-7: #e11d48;   /* Rouge corail */
+    --accord-8: #db2777;   /* Rose vif */
+    --accord-9: #c026d3;   /* Fuchsia */
+    --accord-10: #7c3aed;  /* Violet */
+    
+    /* Versions 25% transparence */
+    --accord-1-light: rgba(0, 74, 137, 0.25);
+    --accord-2-light: rgba(8, 145, 178, 0.25);
+    --accord-3-light: rgba(5, 150, 105, 0.25);
+    --accord-4-light: rgba(101, 163, 13, 0.25);
+    --accord-5-light: rgba(234, 88, 12, 0.25);
+    --accord-6-light: rgba(217, 119, 6, 0.25);
+    --accord-7-light: rgba(225, 29, 72, 0.25);
+    --accord-8-light: rgba(219, 39, 119, 0.25);
+    --accord-9-light: rgba(192, 38, 211, 0.25);
+    --accord-10-light: rgba(124, 58, 237, 0.25);
+    
+    /* ----- Couleurs UE (20 UE) ----- */
+    --ue1-color: #ef4444;  --ue1-bg: #fef2f2;
+    --ue2-color: #10b981;  --ue2-bg: #d1fae5;
+    --ue3-color: #3b82f6;  --ue3-bg: #dbeafe;
+    --ue4-color: #8b5cf6;  --ue4-bg: #ede9fe;
+    --ue5-color: #f97316;  --ue5-bg: #ffedd5;
+    --ue6-color: #ec4899;  --ue6-bg: #fce7f3;
+    --ue7-color: #06b6d4;  --ue7-bg: #cffafe;
+    --ue8-color: #ca8a04;  --ue8-bg: #fef9c3;
+    --ue9-color: #6366f1;  --ue9-bg: #e0e7ff;
+    --ue10-color: #84cc16; --ue10-bg: #ecfccb;
+    --ue11-color: #d946ef; --ue11-bg: #fae8ff;
+    --ue12-color: #14b8a6; --ue12-bg: #ccfbf1;
+    --ue13-color: #be123c; --ue13-bg: #ffe4e6;
+    --ue14-color: #1e40af; --ue14-bg: #dbeafe;
+    --ue15-color: #047857; --ue15-bg: #d1fae5;
+    --ue16-color: #f43f5e; --ue16-bg: #ffe4e6;
+    --ue17-color: #a16207; --ue17-bg: #fef3c7;
+    --ue18-color: #0ea5e9; --ue18-bg: #e0f2fe;
+    --ue19-color: #7e22ce; --ue19-bg: #f3e8ff;
+    --ue20-color: #475569; --ue20-bg: #f1f5f9;
+    
+    /* ----- Sous-modules fixes ----- */
+    --anapat-color: #be123c;
+    --anatomie-color: #0891b2;
+    --histologie-color: #7c3aed;
+    --physiologie-color: #059669;
+    --semiologie-color: #2563eb;
+    --pharmacologie-color: #ea580c;
+    
+    /* ----- Cadres spéciaux ----- */
+    --definition-color: #10b981;
+    --vocabulaire-color: #10b981;
+    --explication-prepa-color: #7c3aed;
+    --interet-clinique-color: #3b82f6;
+    --exemple-clinique-color: #3b82f6;
+    --physiopathologie-color: #0891b2;
+    --rappel-color: #64748b;
+    --en-pratique-color: #14b8a6;
+    
+    --concept-cle-color: #004a89;
+    --a-retenir-color: #f59e0b;
+    --pathologies-retenir-color: #ea580c;
+    --moyen-mnemo-color: #7c3aed;
+    
+    --attention-color: #dc2626;
+    --piege-color: #dc2626;
+    --pas-confondre-color: #c2410c;
+    --question-tombee-color: #7c3aed;
+    
+    /* ----- Flèches en bulles ----- */
+    --fleche-processus: #004a89;
+    --fleche-activation: #10b981;
+    --fleche-inhibition: #dc2626;
+    --fleche-transformation: #7c3aed;
+    --fleche-consequence: #f59e0b;
+    --fleche-equivalence: #3b82f6;
+    --fleche-reversible: #0891b2;
+    
+    /* ----- QCM Flashcards ----- */
+    --qcm-recto: #004a89;
+    --qcm-correct: #065f46;
+    --qcm-wrong: #9ca3af;
+    --qcm-tag-ed: #10b981;
+    --qcm-tag-cm: #3b82f6;
+    --qcm-tag-annee: #10b981;
+    
+    /* ----- ECOS ----- */
+    --ecos-sdd-color: #ff6b7a;
+    
+    /* ----- Neutres ----- */
+    --fond-page: #f8fafc;
+    --fond-carte: #ffffff;
+    --bordure: #e2e8f0;
+    --texte: #004a89;
+    --texte-light: #64748b;
+    
+    /* ----- Variable UE active (à définir par fiche) ----- */
+    --ue-color: var(--ue2-color);
+    --ue-bg: var(--ue2-bg);
+}
+
+/* ========================================
+   2. RESET ET BASE
+   ======================================== */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--texte);
+    background: var(--fond-page);
+    padding: 20px;
+}
+
+/* ========================================
+   3. PROTECTION ANTI-COPIE
+   ======================================== */
+.protected-content {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.protected-content img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+}
+
+/* ========================================
+   4. CONTAINER PRINCIPAL
+   ======================================== */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--fond-carte);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+/* ========================================
+   5. HEADER
+   ======================================== */
+.header {
+    background: var(--bleu-medibox);
+    color: white;
+    padding: 18px 25px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.header-left { flex: 1; }
+
+.header h1 { 
+    font-size: 1.35rem;
+    font-weight: 700; 
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.header-subtitle {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.tag-ue {
+    display: inline-block;
+    background: var(--ue-color);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.tag-sous-module {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.2);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.tag-sous-module.anapat { background: var(--anapat-color); }
+.tag-sous-module.anatomie { background: var(--anatomie-color); }
+.tag-sous-module.histologie { background: var(--histologie-color); }
+.tag-sous-module.physiologie { background: var(--physiologie-color); }
+.tag-sous-module.semiologie { background: var(--semiologie-color); }
+.tag-sous-module.pharmacologie { background: var(--pharmacologie-color); }
+
+/* ========================================
+   6. LIGNE SÉPARATRICE UE
+   ======================================== */
+.ue-separator {
+    height: 4px;
+    background: var(--ue-color);
+}
+
+/* ========================================
+   7. BARRE D'ONGLETS
+   ======================================== */
+.tabs-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 74, 137, 0.85);
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.tabs-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.tab {
+    padding: 12px 18px;
+    color: rgba(255,255,255,0.85);
+    cursor: pointer;
+    font-weight: 500;
+    border: none;
+    background: none;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tab:hover {
+    color: white;
+    background: rgba(255,255,255,0.15);
+}
+
+.tab.active {
+    color: white;
+    background: var(--ue-color);
+}
+
+.tab-content {
+    display: none;
+    padding: 25px;
+}
+
+.tab-content.active { display: block; }
+
+/* ========================================
+   8. FOOTER
+   ======================================== */
+.footer {
+    background: #f1f5f9;
+    padding: 12px 20px;
+    text-align: center;
+    border-top: 1px solid var(--bordure);
+}
+
+.footer-line1 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--texte);
+    margin-bottom: 3px;
+}
+
+.footer-line2 {
+    font-size: 0.8rem;
+    color: var(--texte-light);
+    margin-bottom: 5px;
+}
+
+.footer-copyright {
+    font-size: 0.7rem;
+    color: var(--texte-light);
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* ========================================
+   9. BOUTONS TOUT DÉPLIER / REPLIER
+   ======================================== */
+.toggle-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: flex-end;
+}
+
+.toggle-btn {
+    background: var(--fond-page);
+    border: 2px solid var(--bordure);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--bleu-medibox);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.toggle-btn:hover {
+    background: var(--bleu-medibox);
+    color: white;
+    border-color: var(--bleu-medibox);
+}
+
+/* ========================================
+   10. SOMMAIRE
+   ======================================== */
+.sommaire-accordion {
+    margin-bottom: 20px;
+    border: 2px solid var(--ue-color);
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+}
+
+.sommaire-accordion summary {
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ue-color);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+}
+
+.sommaire-accordion summary::-webkit-details-marker { display: none; }
+
+.sommaire-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--ue-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.sommaire-accordion summary::after {
+    content: "▼";
+    font-size: 0.75rem;
+    margin-left: auto;
+    color: var(--ue-color);
+    transition: transform 0.3s;
+}
+
+.sommaire-accordion[open] summary::after { transform: rotate(180deg); }
+
+.sommaire-accordion[open] {
+    background: #e8f0f5;
+}
+
+.sommaire-accordion[open] summary {
+    background: white;
+    border-bottom: 2px solid var(--ue-color);
+}
+
+.sommaire-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sommaire-partie {
+    background: white;
+    border-radius: 8px;
+    padding: 10px 14px;
+    border-left: 4px solid var(--accord-1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.sommaire-partie-titre {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+}
+
+.sommaire-sous-parties {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 5px;
+}
+
+.sommaire-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+}
+
+.sommaire-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 26px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: white;
+}
+
+/* Couleurs sommaire par accordéon */
+.sommaire-partie.accord-1 { border-left-color: var(--accord-1); }
+.sommaire-partie.accord-1 .sommaire-partie-titre { color: var(--accord-1); }
+.sommaire-partie.accord-2 { border-left-color: var(--accord-2); }
+.sommaire-partie.accord-2 .sommaire-partie-titre { color: var(--accord-2); }
+.sommaire-partie.accord-3 { border-left-color: var(--accord-3); }
+.sommaire-partie.accord-3 .sommaire-partie-titre { color: var(--accord-3); }
+.sommaire-partie.accord-4 { border-left-color: var(--accord-4); }
+.sommaire-partie.accord-4 .sommaire-partie-titre { color: var(--accord-4); }
+.sommaire-partie.accord-5 { border-left-color: var(--accord-5); }
+.sommaire-partie.accord-5 .sommaire-partie-titre { color: var(--accord-5); }
+.sommaire-partie.accord-6 { border-left-color: var(--accord-6); }
+.sommaire-partie.accord-6 .sommaire-partie-titre { color: var(--accord-6); }
+.sommaire-partie.accord-7 { border-left-color: var(--accord-7); }
+.sommaire-partie.accord-7 .sommaire-partie-titre { color: var(--accord-7); }
+.sommaire-partie.accord-8 { border-left-color: var(--accord-8); }
+.sommaire-partie.accord-8 .sommaire-partie-titre { color: var(--accord-8); }
+.sommaire-partie.accord-9 { border-left-color: var(--accord-9); }
+.sommaire-partie.accord-9 .sommaire-partie-titre { color: var(--accord-9); }
+.sommaire-partie.accord-10 { border-left-color: var(--accord-10); }
+.sommaire-partie.accord-10 .sommaire-partie-titre { color: var(--accord-10); }
+
+/* ========================================
+   11. ACCORDÉONS PRINCIPAUX
+   ======================================== */
+.partie-accordion {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--bordure);
+}
+
+.partie-accordion summary {
+    padding: 14px 18px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.partie-accordion summary::-webkit-details-marker { display: none; }
+
+.partie-accordion summary::after {
+    content: "▼";
+    font-size: 0.8rem;
+    margin-left: auto;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.partie-accordion[open] summary::after { transform: rotate(180deg); }
+
+.partie-num {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.partie-content {
+    padding: 18px;
+    background: var(--fond-page);
+}
+
+/* Couleurs des 10 accordéons */
+.accord-1 > summary { background: var(--accord-1); }
+.accord-2 > summary { background: var(--accord-2); }
+.accord-3 > summary { background: var(--accord-3); }
+.accord-4 > summary { background: var(--accord-4); }
+.accord-5 > summary { background: var(--accord-5); }
+.accord-6 > summary { background: var(--accord-6); }
+.accord-7 > summary { background: var(--accord-7); }
+.accord-8 > summary { background: var(--accord-8); }
+.accord-9 > summary { background: var(--accord-9); }
+.accord-10 > summary { background: var(--accord-10); }
+
+/* ========================================
+   12. SOUS-ACCORDÉONS
+   ======================================== */
+.sub-accordion {
+    margin: 8px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--bordure);
+    background: white;
+}
+
+.sub-accordion summary {
+    padding: 12px 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    transition: all 0.2s;
+}
+
+.sub-accordion summary::-webkit-details-marker { display: none; }
+
+.sub-accordion summary::after {
+    content: "▶";
+    font-size: 0.7rem;
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.sub-accordion[open] summary::after { transform: rotate(90deg); }
+
+.sub-content { padding: 15px; background: white; }
+
+.sub-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 22px;
+    padding: 0 8px;
+    border-radius: 11px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
+}
+
+/* Sous-accordéons par couleur parent */
+.accord-1 .sub-accordion summary { border-left: 4px solid var(--accord-1); color: var(--accord-1); }
+.accord-1 .sub-accordion summary::after { color: var(--accord-1); }
+.accord-1 .sub-num { background: var(--accord-1); }
+.accord-1 .sub-accordion[open] summary { background: var(--accord-1-light); color: var(--bleu-medibox); }
+.accord-1 .sub-accordion[open] summary::after { color: var(--bleu-medibox); }
+.accord-1 .sub-accordion[open] .sub-num { background: white; color: var(--accord-1); }
+
+.accord-2 .sub-accordion summary { border-left: 4px solid var(--accord-2); color: var(--accord-2); }
+.accord-2 .sub-accordion summary::after { color: var(--accord-2); }
+.accord-2 .sub-num { background: var(--accord-2); }
+.accord-2 .sub-accordion[open] summary { background: var(--accord-2-light); color: var(--bleu-medibox); }
+.accord-2 .sub-accordion[open] summary::after { color: var(--bleu-medibox); }
+.accord-2 .sub-accordion[open] .sub-num { background: white; color: var(--accord-2); }
+
+.accord-3 .sub-accordion summary { border-left: 4px solid var(--accord-3); color: var(--accord-3); }
+.accord-3 .sub-accordion summary::after { color: var(--accord-3); }
+.accord-3 .sub-num { background: var(--accord-3); }
+.accord-3 .sub-accordion[open] summary { background: var(--accord-3-light); color: var(--bleu-medibox); }
+.accord-3 .sub-accordion[open] summary::after { color: var(--bleu-medibox); }
+.accord-3 .sub-accordion[open] .sub-num { background: white; color: var(--accord-3); }
+
+.accord-4 .sub-accordion summary { border-left: 4px solid var(--accord-4); color: var(--accord-4); }
+.accord-4 .sub-accordion summary::after { color: var(--accord-4); }
+.accord-4 .sub-num { background: var(--accord-4); }
+.accord-4 .sub-accordion[open] summary { background: var(--accord-4-light); color: var(--bleu-medibox); }
+.accord-4 .sub-accordion[open] summary::after { color: var(--bleu-medibox); }
+.accord-4 .sub-accordion[open] .sub-num { background: white; color: var(--accord-4); }
+
+.accord-5 .sub-accordion summary { border-left: 4px solid var(--accord-5); color: var(--accord-5); }
+.accord-5 .sub-accordion summary::after { color: var(--accord-5); }
+.accord-5 .sub-num { background: var(--accord-5); }
+.accord-5 .sub-accordion[open] summary { background: var(--accord-5-light); color: var(--bleu-medibox); }
+.accord-5 .sub-accordion[open] summary::after { color: var(--bleu-medibox); }
+.accord-5 .sub-accordion[open] .sub-num { background: white; color: var(--accord-5); }
+
+.accord-6 .sub-accordion summary { border-left: 4px solid var(--accord-6); color: var(--accord-6); }
+.accord-6 .sub-accordion summary::after { color: var(--accord-6); }
+.accord-6 .sub-num { background: var(--accord-6); }
+.accord-6 .sub-accordion[open] summary { background: var(--accord-6-light); color: var(--bleu-medibox); }
+.accord-6 .sub-accordion[open] summary::after { color: var(--bleu-medibox); }
+.accord-6 .sub-accordion[open] .sub-num { background: white; color: var(--accord-6); }
+
+.accord-7 .sub-accordion summary { border-left: 4px solid var(--accord-7); color: var(--accord-7); }
+.accord-7 .sub-accordion summary::after { color: var(--accord-7); }
+.accord-7 .sub-num { background: var(--accord-7); }
+.accord-7 .sub-accordion[open] summary { background: var(--accord-7-light); color: var(--bleu-medibox); }
+.accord-7 .sub-accordion[open] summary::after { color: var(--bleu-medibox); }
+.accord-7 .sub-accordion[open] .sub-num { background: white; color: var(--accord-7); }
+
+.accord-8 .sub-accordion summary { border-left: 4px solid var(--accord-8); color: var(--accord-8); }
+.accord-8 .sub-accordion summary::after { color: var(--accord-8); }
+.accord-8 .sub-num { background: var(--accord-8); }
+.accord-8 .sub-accordion[open] summary { background: var(--accord-8-light); color: var(--bleu-medibox); }
+.accord-8 .sub-accordion[open] summary::after { color: var(--bleu-medibox); }
+.accord-8 .sub-accordion[open] .sub-num { background: white; color: var(--accord-8); }
+
+.accord-9 .sub-accordion summary { border-left: 4px solid var(--accord-9); color: var(--accord-9); }
+.accord-9 .sub-accordion summary::after { color: var(--accord-9); }
+.accord-9 .sub-num { background: var(--accord-9); }
+.accord-9 .sub-accordion[open] summary { background: var(--accord-9-light); color: var(--bleu-medibox); }
+.accord-9 .sub-accordion[open] summary::after { color: var(--bleu-medibox); }
+.accord-9 .sub-accordion[open] .sub-num { background: white; color: var(--accord-9); }
+
+.accord-10 .sub-accordion summary { border-left: 4px solid var(--accord-10); color: var(--accord-10); }
+.accord-10 .sub-accordion summary::after { color: var(--accord-10); }
+.accord-10 .sub-num { background: var(--accord-10); }
+.accord-10 .sub-accordion[open] summary { background: var(--accord-10-light); color: var(--bleu-medibox); }
+.accord-10 .sub-accordion[open] summary::after { color: var(--bleu-medibox); }
+.accord-10 .sub-accordion[open] .sub-num { background: white; color: var(--accord-10); }
+
+/* ========================================
+   13. BLOCS DE CONTENU
+   ======================================== */
+.bloc {
+    background: white;
+    border: 1px solid var(--bordure);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.bloc-header {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--bordure);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.bloc-body { padding: 14px; }
+
+/* Header de bloc par accordéon parent */
+.accord-1 .bloc-header { background: var(--accord-1-light); }
+.accord-2 .bloc-header { background: var(--accord-2-light); }
+.accord-3 .bloc-header { background: var(--accord-3-light); }
+.accord-4 .bloc-header { background: var(--accord-4-light); }
+.accord-5 .bloc-header { background: var(--accord-5-light); }
+.accord-6 .bloc-header { background: var(--accord-6-light); }
+.accord-7 .bloc-header { background: var(--accord-7-light); }
+.accord-8 .bloc-header { background: var(--accord-8-light); }
+.accord-9 .bloc-header { background: var(--accord-9-light); }
+.accord-10 .bloc-header { background: var(--accord-10-light); }
+
+/* ========================================
+   14. TABLEAUX
+   ======================================== */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 12px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+th {
+    color: var(--texte);
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--bordure);
+    vertical-align: top;
+    background: white;
+}
+
+tr:hover td { background: #f8fafc; }
+
+/* Header tableau par accordéon parent */
+.accord-1 th { background: var(--accord-1-light); }
+.accord-2 th { background: var(--accord-2-light); }
+.accord-3 th { background: var(--accord-3-light); }
+.accord-4 th { background: var(--accord-4-light); }
+.accord-5 th { background: var(--accord-5-light); }
+.accord-6 th { background: var(--accord-6-light); }
+.accord-7 th { background: var(--accord-7-light); }
+.accord-8 th { background: var(--accord-8-light); }
+.accord-9 th { background: var(--accord-9-light); }
+.accord-10 th { background: var(--accord-10-light); }
+
+/* ========================================
+   15. LISTES
+   ======================================== */
+.bloc-body ul, .sub-content ul, .partie-content > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bloc-body li, .sub-content li, .partie-content > ul > li {
+    padding: 5px 0;
+    padding-left: 18px;
+    position: relative;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.bloc-body li:last-child, .sub-content li:last-child, .partie-content > ul > li:last-child { 
+    border-bottom: none; 
+}
+
+.bloc-body li::before, .sub-content li::before, .partie-content > ul > li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Couleur des puces par accordéon parent */
+.accord-1 li::before { color: var(--accord-1); }
+.accord-2 li::before { color: var(--accord-2); }
+.accord-3 li::before { color: var(--accord-3); }
+.accord-4 li::before { color: var(--accord-4); }
+.accord-5 li::before { color: var(--accord-5); }
+.accord-6 li::before { color: var(--accord-6); }
+.accord-7 li::before { color: var(--accord-7); }
+.accord-8 li::before { color: var(--accord-8); }
+.accord-9 li::before { color: var(--accord-9); }
+.accord-10 li::before { color: var(--accord-10); }
+
+/* ========================================
+   16. CADRES SPÉCIAUX AVEC TAGS
+   ======================================== */
+.box-special {
+    position: relative;
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 28px;
+    margin: 25px 0;
+}
+
+.box-special .tag {
+    position: absolute;
+    top: -12px;
+    left: 16px;
+    color: white;
+    padding: 5px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Style léger */
+.box-definition {
+    background: rgba(16, 185, 129, 0.15);
+    border-left: 4px solid var(--definition-color);
+    border-radius: 0 10px 10px 0;
+}
+.box-definition .tag { background: var(--definition-color); }
+
+.box-vocabulaire {
+    background: rgba(16, 185, 129, 0.15);
+    border-left: 4px solid var(--vocabulaire-color);
+    border-radius: 0 10px 10px 0;
+}
+.box-vocabulaire .tag { background: var(--vocabulaire-color); }
+
+.box-explication-prepa {
+    background: rgba(124, 58, 237, 0.15);
+    border-left: 4px solid var(--explication-prepa-color);
+    border-radius: 0 10px 10px 0;
+}
+.box-explication-prepa .tag { background: var(--explication-prepa-color); }
+
+.box-interet-clinique {
+    background: rgba(59, 130, 246, 0.15);
+    border-left: 4px solid var(--interet-clinique-color);
+    border-radius: 0 10px 10px 0;
+}
+.box-interet-clinique .tag { background: var(--interet-clinique-color); }
+
+.box-exemple-clinique {
+    background: rgba(59, 130, 246, 0.15);
+    border-left: 4px solid var(--exemple-clinique-color);
+    border-radius: 0 10px 10px 0;
+}
+.box-exemple-clinique .tag { background: var(--exemple-clinique-color); }
+
+.box-physiopathologie {
+    background: rgba(8, 145, 178, 0.15);
+    border-left: 4px solid var(--physiopathologie-color);
+    border-radius: 0 10px 10px 0;
+}
+.box-physiopathologie .tag { background: var(--physiopathologie-color); }
+
+.box-rappel {
+    background: rgba(100, 116, 139, 0.15);
+    border-left: 4px solid var(--rappel-color);
+    border-radius: 0 10px 10px 0;
+}
+.box-rappel .tag { background: var(--rappel-color); }
+
+.box-en-pratique {
+    background: rgba(20, 184, 166, 0.15);
+    border-left: 4px solid var(--en-pratique-color);
+    border-radius: 0 10px 10px 0;
+}
+.box-en-pratique .tag { background: var(--en-pratique-color); }
+
+/* Style fort */
+.box-concept-cle {
+    background: linear-gradient(135deg, rgba(0, 74, 137, 0.15) 0%, rgba(0, 74, 137, 0.25) 100%);
+    border: 2px solid var(--concept-cle-color);
+}
+.box-concept-cle .tag { background: var(--concept-cle-color); }
+
+.box-a-retenir {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 2px solid var(--a-retenir-color);
+}
+.box-a-retenir .tag { background: var(--a-retenir-color); }
+
+.box-pathologies-retenir {
+    background: linear-gradient(135deg, rgba(234, 88, 12, 0.15) 0%, rgba(234, 88, 12, 0.25) 100%);
+    border: 2px solid var(--pathologies-retenir-color);
+}
+.box-pathologies-retenir .tag { background: var(--pathologies-retenir-color); }
+
+.box-moyen-mnemo {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(124, 58, 237, 0.25) 100%);
+    border: 2px solid var(--moyen-mnemo-color);
+}
+.box-moyen-mnemo .tag { background: var(--moyen-mnemo-color); }
+
+/* Style alerte */
+.box-attention {
+    background: rgba(220, 38, 38, 0.1);
+    border: 2px solid var(--attention-color);
+}
+.box-attention .tag { background: var(--attention-color); }
+
+.box-piege {
+    background: rgba(220, 38, 38, 0.1);
+    border: 2px solid var(--piege-color);
+}
+.box-piege .tag { background: var(--piege-color); }
+
+.box-pas-confondre {
+    background: rgba(194, 65, 12, 0.1);
+    border: 2px solid var(--pas-confondre-color);
+}
+.box-pas-confondre .tag { background: var(--pas-confondre-color); }
+
+/* Style exam */
+.box-question-tombee {
+    background: rgba(124, 58, 237, 0.1);
+    border: 2px dashed var(--question-tombee-color);
+}
+.box-question-tombee .tag { background: var(--question-tombee-color); }
+
+/* Fin de partie */
+.box-fin-partie {
+    background: rgba(0, 74, 137, 0.08);
+    border: 2px solid var(--bleu-medibox);
+}
+.box-fin-partie .tag { background: var(--bleu-medibox); }
+
+/* ========================================
+   17. FLÈCHES EN BULLES
+   ======================================== */
+.arrow-bubble {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    margin: 0 6px;
+    vertical-align: middle;
+    color: white;
+}
+
+.arrow-processus { background: linear-gradient(135deg, var(--fleche-processus) 0%, #0066b3 100%); }
+.arrow-activation { background: linear-gradient(135deg, var(--fleche-activation) 0%, #059669 100%); }
+.arrow-inhibition { background: linear-gradient(135deg, var(--fleche-inhibition) 0%, #b91c1c 100%); }
+.arrow-transformation { background: linear-gradient(135deg, var(--fleche-transformation) 0%, #6d28d9 100%); }
+.arrow-consequence { background: linear-gradient(135deg, var(--fleche-consequence) 0%, #d97706 100%); }
+.arrow-equivalence { background: linear-gradient(135deg, var(--fleche-equivalence) 0%, #2563eb 100%); }
+.arrow-reversible { background: linear-gradient(135deg, var(--fleche-reversible) 0%, #0e7490 100%); }
+
+/* ========================================
+   18. IMAGES ET LIGHTBOX
+   ======================================== */
+/* Image cliquable dans le contenu */
+.img-lightbox {
+    cursor: zoom-in;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--bordure);
+    transition: transform 0.2s, box-shadow 0.2s;
+    pointer-events: auto !important;
+}
+
+.img-lightbox:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* Container image avec légende */
+.img-container {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.img-container figcaption {
+    font-size: 0.8rem;
+    color: var(--texte-light);
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* Layout 2 colonnes pour images + texte */
+.content-with-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.content-with-image.image-left {
+    grid-template-columns: 1fr 1fr;
+}
+
+.content-with-image.image-right {
+    grid-template-columns: 1fr 1fr;
+}
+
+.content-with-image.image-right .img-container {
+    order: 2;
+}
+
+@media (max-width: 768px) {
+    .content-with-image {
+        grid-template-columns: 1fr;
+    }
+    .content-with-image.image-right .img-container {
+        order: 0;
+    }
+}
+
+/* LIGHTBOX OVERLAY */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    cursor: zoom-out;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.2);
+}
+
+.lightbox-caption {
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   19. ONGLET OBJECTIFS
+   ======================================== */
+.objectifs-box {
+    background: rgba(16, 185, 129, 0.15);
+    border-left: 4px solid var(--ue-color);
+    border-radius: 0 10px 10px 0;
+    padding: 18px;
+}
+
+.objectifs-title {
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.objectifs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.objectifs-list li {
+    padding: 6px 0;
+    padding-left: 24px;
+    position: relative;
+    border-bottom: none;
+}
+
+.objectifs-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--ue-color);
+    font-weight: 600;
+}
+
+/* ========================================
+   20. ONGLET RESSOURCES
+   ======================================== */
+.ressources-section {
+    background: white;
+    border: 1px solid var(--bordure);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 15px;
+}
+
+.ressources-title {
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--bleu-medibox);
+}
+
+.ressources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ressources-list li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.ressources-list li:last-child { border-bottom: none; }
+
+.ressources-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--bleu-medibox);
+}
+
+.ressources-list a {
+    color: var(--bleu-medibox);
+    text-decoration: none;
+}
+
+.ressources-list a:hover { text-decoration: underline; }
+
+.ressources-external::after {
+    content: " ↗";
+    font-size: 0.8em;
+}
+
+/* ========================================
+   21. ONGLET QCM - FLASHCARDS
+   ======================================== */
+.flashcards-intro {
+    background: rgba(16, 185, 129, 0.15);
+    border-left: 4px solid #10b981;
+    border-radius: 0 10px 10px 0;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.flashcards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.flashcard {
+    perspective: 1000px;
+    height: 340px;
+    cursor: pointer;
+    position: relative;
+}
+
+.flashcard .tag-source {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: white;
+    z-index: 10;
+}
+
+.tag-ed { background: var(--qcm-tag-ed); }
+.tag-cm { background: var(--qcm-tag-cm); }
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    padding: 20px;
+    padding-top: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+
+.flashcard-front {
+    background: linear-gradient(135deg, rgba(0, 74, 137, 0.1) 0%, rgba(0, 74, 137, 0.2) 100%);
+    border: 2px solid var(--bleu-medibox);
+}
+
+.flashcard-back {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%);
+    border: 2px solid var(--ue-color);
+    transform: rotateY(180deg);
+}
+
+.flashcard-number {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--bleu-medibox);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.flashcard-back .flashcard-number {
+    background: var(--ue-color);
+}
+
+.flashcard-question {
+    font-weight: 700;
+    color: var(--bleu-medibox);
+    margin-bottom: 15px;
+    padding-left: 35px;
+}
+
+.flashcard-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.flashcard-options li {
+    padding: 8px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.flashcard-options li:last-child { border-bottom: none; }
+
+.flashcard-options li .letter {
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+}
+
+.flashcard-options li::before { display: none; }
+
+.flashcard-options li.correct {
+    color: var(--qcm-correct);
+    font-weight: 600;
+}
+
+.flashcard-options li.correct::after { content: " ✓"; }
+
+.flashcard-options li.wrong {
+    text-decoration: line-through;
+    color: var(--qcm-wrong);
+}
+
+.tag-annee {
+    display: inline-block;
+    background: var(--qcm-tag-annee);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.flashcard-hint {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    font-size: 0.75rem;
+    color: var(--texte-light);
+    font-style: italic;
+    border-top: 1px dashed var(--bordure);
+}
+
+/* ========================================
+   22. ONGLET ECOS
+   ======================================== */
+.ecos-accordion {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--bordure);
+}
+
+.ecos-accordion summary {
+    padding: 14px 18px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+    background: var(--bleu-medibox);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ecos-accordion summary::-webkit-details-marker { display: none; }
+
+.ecos-accordion summary::after {
+    content: "▼";
+    font-size: 0.65rem;
+    margin-left: auto;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.ecos-accordion[open] summary::after { transform: rotate(180deg); }
+
+.ecos-num {
+    width: 26px;
+    height: 26px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.tag-sdd {
+    background: var(--ecos-sdd-color);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.ecos-content {
+    padding: 25px 18px;
+    background: var(--fond-page);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ecos-vignette {
+    position: relative;
+    background: white;
+    border: 1px solid var(--bordure);
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 28px;
+}
+
+.ecos-vignette .tag {
+    position: absolute;
+    top: -12px;
+    left: 16px;
+    color: white;
+    padding: 5px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ecos-situation .tag { background: #3b82f6; }
+.ecos-dialogue .tag { background: #8b5cf6; }
+.ecos-reponse-prof .tag { background: #059669; }
+.ecos-reponse-medibox .tag { background: var(--ecos-sdd-color); }
+
+/* ========================================
+   23. ONGLET MISE EN SITUATION
+   ======================================== */
+.situation-accordion {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--bordure);
+}
+
+.situation-accordion summary {
+    padding: 14px 18px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+    background: var(--bleu-medibox);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.situation-accordion summary::-webkit-details-marker { display: none; }
+
+.situation-accordion summary::after {
+    content: "▼";
+    font-size: 0.65rem;
+    margin-left: auto;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.situation-accordion[open] summary::after { transform: rotate(180deg); }
+
+.situation-num {
+    width: 26px;
+    height: 26px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.situation-content {
+    padding: 25px 18px;
+    background: var(--fond-page);
+}
+
+.situation-dialogue {
+    position: relative;
+    background: white;
+    border: 1px solid var(--bordure);
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 28px;
+}
+
+.situation-dialogue .tag {
+    position: absolute;
+    top: -12px;
+    left: 16px;
+    background: #8b5cf6;
+    color: white;
+    padding: 5px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ========================================
+   24. ONGLET MISES À JOUR
+   ======================================== */
+.maj-accordion {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--bordure);
+}
+
+.maj-accordion summary {
+    padding: 12px 18px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--bleu-medibox);
+    background: white;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.maj-accordion summary::-webkit-details-marker { display: none; }
+
+.maj-accordion summary::after {
+    content: "▼";
+    font-size: 0.6rem;
+    margin-left: auto;
+    color: var(--texte-light);
+    transition: transform 0.3s;
+}
+
+.maj-accordion[open] summary::after { transform: rotate(180deg); }
+
+.maj-content {
+    padding: 15px;
+    background: var(--fond-page);
+}
+
+.maj-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.maj-content li {
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+    border-bottom: none;
+}
+
+.maj-content li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--bleu-medibox);
+}
+
+/* ========================================
+   25. BOUTON FLOTTANT
+   ======================================== */
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.floating-btn.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.floating-btn-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bleu-medibox);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+.floating-btn-toggle:hover {
+    background: var(--ue-color);
+    transform: scale(1.1);
+}
+
+.floating-btn-menu {
+    display: none;
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    overflow: hidden;
+    min-width: 140px;
+}
+
+.floating-btn.open .floating-btn-menu {
+    display: block;
+}
+
+.floating-btn-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 15px;
+    color: var(--bleu-medibox);
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    transition: background 0.2s;
+}
+
+.floating-btn-item:hover {
+    background: var(--fond-page);
+}
+
+.floating-btn-item:not(:last-child) {
+    border-bottom: 1px solid var(--bordure);
+}
+
+/* ========================================
+   26. RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    
+    .header { padding: 15px; }
+    .header h1 { font-size: 1.15rem; }
+    
+    .header-content {
+        flex-direction: column;
+    }
+    
+    .header-right {
+        align-items: flex-start;
+        order: -1;
+        margin-bottom: 10px;
+    }
+    
+    .tabs-bar { flex-wrap: wrap; }
+    .tab { padding: 10px 12px; font-size: 0.8rem; }
+    
+    .partie-accordion summary {
+        font-size: 0.9rem;
+        padding: 12px 15px;
+    }
+    
+    .flashcards-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .floating-btn-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+    
+    .floating-btn {
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tab {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .tab span:first-child {
+        display: none;
+    }
+}
+
+/* ========================================
+   27. PRINT (blocage)
+   ======================================== */
+@media print {
+    body { display: none !important; }
+    
+    html::after {
+        content: "L'impression de ce document n'est pas autorisée.";
+        display: block;
+        padding: 50px;
+        text-align: center;
+        font-size: 1.5rem;
+        color: #dc2626;
+    }
+}
